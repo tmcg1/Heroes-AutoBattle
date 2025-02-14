@@ -15,6 +15,11 @@ clock = pygame.time.Clock()
 druid = Druid()
 paladin = Paladin()
 
+druid.add_bloodlust()
+druid.add_evolution()
+
+paladin.add_growing_light()
+
 is_paused = True
 run = True
 
@@ -30,6 +35,7 @@ while run:
 
     druid.swipe(paladin)
     paladin.holy_strike(druid)
+    paladin.holy_light()
 
     druid_health_bar = HealthBar(610, 760, 300, 40, druid.hp, druid.max_hp)
     paladin_health_bar = HealthBar(600, 0, 300, 40, paladin.hp, paladin.max_hp)

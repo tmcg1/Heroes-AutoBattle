@@ -1,5 +1,8 @@
-from helpers.cooldown_ready import cooldown_ready
 import random
+
+from helpers.attack import attack
+from helpers.cooldown_ready import cooldown_ready
+from helpers.heal import heal
 
 class Paladin:
     def __init__(self):
@@ -8,12 +11,24 @@ class Paladin:
         self.alive = True
         self.holy_strike_cooldown = 2500
         self.holy_strike_counter = self.holy_strike_cooldown
+        self.holy_light_cooldown = 5000
+        self.holy_light_counter = self.holy_light_cooldown
+        self.growing_light = False
+        self.growing_light_counter = 1
 
     def holy_strike(self, enemy):
         if cooldown_ready(self, "holy_strike_counter", "holy_strike_cooldown"):
-            if enemy.hp > 0:
-                attack_dmg = random.randint(2, 5)
-                enemy.hp = enemy.hp - attack_dmg
-                if enemy.hp <= 0:
-                    enemy.hp = 0
-                    self.alive = False
+            attack(self, enemy, random.randint(3, 5))
+
+    def holy_light(self):
+        if cooldown_ready(self, "holy_light_counter", "holy_light_cooldown"):
+            healing_points = random.randint(10, 15)
+
+            if self.growing_light:
+                healing_points += self.growing_light_counter
+                self.growing_light_counter += 1
+
+            heal(self, healing_points)
+
+    def add_growing_light(self):
+        self.growing_light = True
