@@ -1,17 +1,17 @@
+from classes.heroes.Hero import Hero
 from helpers.attack import attack
 from helpers.cooldown_ready import cooldown_ready
 import random
 
-class Druid:
+class Druid(Hero):
     def __init__(self):
         self.hp = 60
-        self.max_hp = self.hp
-        self.alive = True
         self.swipe_cooldown = 2000
         self.swipe_counter = self.swipe_cooldown
         self.bloodlust = False
         self.evolution = False
         self.bloodlust_counter = 1
+        super().__init__(self.hp)
 
     def swipe(self, enemy):
         if cooldown_ready(self, "swipe_counter", "swipe_cooldown"):
