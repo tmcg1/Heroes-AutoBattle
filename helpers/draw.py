@@ -10,6 +10,7 @@ def draw_images():
     WIN.blit(paladin_img, (680, 50))
     pygame.display.update()
 
-def draw_text(text, font, text_color, x, y):
+def draw_text(text, x, y, text_color = (0,0,0)):
+    font = pygame.font.SysFont("Arial", 30)
     img = font.render(text, True, text_color)
     WIN.blit(img, (x, y))

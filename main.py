@@ -3,11 +3,11 @@ import pygame
 from classes.heroes.Druid import Druid
 from classes.heroes.Paladin import Paladin
 from classes.visuals.HealthBar import HealthBar
-from constants.constants import WIN, text_color
+from constants.constants import WIN
 from helpers.draw import draw_images, draw_text
 
 pygame.font.init()
-font = pygame.font.SysFont("Arial", 30)
+
 pygame.display.set_caption("Heroes AutoBattle")
 
 clock = pygame.time.Clock()
@@ -15,9 +15,11 @@ clock = pygame.time.Clock()
 druid = Druid()
 paladin = Paladin()
 
+# Druid effects
 druid.add_bloodlust()
 druid.add_evolution()
 
+# Paladin effects
 paladin.add_growing_light()
 
 is_paused = True
@@ -30,7 +32,7 @@ while run:
     while druid.alive == False or paladin.alive == False:
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN or event.type == pygame.QUIT:
-                if event.key == pygame.K_RETURN:
+                if event.key == pygame.K_ESCAPE:
                     pygame.quit()
 
     druid.swipe(paladin)
@@ -45,6 +47,8 @@ while run:
 
     draw_text(str(f"{druid.hp} | {druid.max_hp}"), font, text_color, 725, 765)
     draw_text(str(f"{paladin.hp} | {paladin.max_hp}"), font, text_color, 725, 3)
+    draw_text(f"{druid.hp} | {druid.max_hp}", 725, 765)
+    draw_text(f"{paladin.hp} | {paladin.max_hp}", 725, 3)
 
     # GAME IS PAUSED
     for event in pygame.event.get():
