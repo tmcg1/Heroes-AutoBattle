@@ -45,8 +45,6 @@ while run:
     druid_health_bar.draw(WIN)
     paladin_health_bar.draw(WIN)
 
-    draw_text(str(f"{druid.hp} | {druid.max_hp}"), font, text_color, 725, 765)
-    draw_text(str(f"{paladin.hp} | {paladin.max_hp}"), font, text_color, 725, 3)
     draw_text(f"{druid.hp} | {druid.max_hp}", 725, 765)
     draw_text(f"{paladin.hp} | {paladin.max_hp}", 725, 3)
 
