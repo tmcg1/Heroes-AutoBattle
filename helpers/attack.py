@@ -1,7 +1,4 @@
-def attack(self, enemy, dmg):
-    if hasattr(self, 'evolution') and self.evolution:
-        self.max_hp += 1
-
+def attack(enemy, dmg):
     if enemy.hp > 0:
         enemy.hp = enemy.hp - dmg
         if enemy.hp <= 0:

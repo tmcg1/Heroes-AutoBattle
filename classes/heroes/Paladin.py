@@ -18,7 +18,7 @@ class Paladin(Hero):
 
     def holy_strike(self, enemy):
         if cooldown_ready(self, "holy_strike_counter", "holy_strike_cooldown"):
-            attack(self, enemy, random.randint(3, 5))
+            attack(enemy, random.randint(3, 5))
 
     def holy_light(self):
         if cooldown_ready(self, "holy_light_counter", "holy_light_cooldown"):

@@ -13,6 +13,12 @@ class Druid(Hero):
         self.bloodlust_counter = 1
         super().__init__(self.hp)
 
+    def druid_attack(self, enemy, dmg):
+        if self.evolution:
+            self.max_hp += 1
+
+        attack(enemy, dmg)
+
     def swipe(self, enemy):
         if cooldown_ready(self, "swipe_counter", "swipe_cooldown"):
             dmg = random.randint(1, 3)
@@ -21,7 +27,7 @@ class Druid(Hero):
                 dmg += self.bloodlust_counter
                 self.bloodlust_counter += 1
 
-            attack(self, enemy, dmg)
+            self.druid_attack(enemy, dmg)
 
     def add_bloodlust(self):
         self.bloodlust = True
