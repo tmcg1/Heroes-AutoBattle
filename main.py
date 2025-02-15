@@ -29,7 +29,7 @@ while run:
 
     while druid.alive == False or paladin.alive == False:
         for event in pygame.event.get():
-            if event.type == pygame.KEYDOWN:
+            if event.type == pygame.KEYDOWN or event.type == pygame.QUIT:
                 if event.key == pygame.K_RETURN:
                     pygame.quit()
 
