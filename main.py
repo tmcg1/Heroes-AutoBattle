@@ -48,6 +48,9 @@ while run:
     draw_text(f"{druid.hp} | {druid.max_hp}", 725, 765)
     draw_text(f"{paladin.hp} | {paladin.max_hp}", 725, 3)
 
+    draw_text(paladin.current_dmg, 525, 100, 'white')
+    draw_text(druid.current_dmg, 525, 500, 'white')
+
     # GAME IS PAUSED
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
