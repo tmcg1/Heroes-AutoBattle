@@ -6,7 +6,7 @@ import random
 class Druid(Hero):
     def __init__(self):
         self.hp = 60
-        self.swipe_cooldown = 2000
+        self.swipe_cooldown = 2500
         self.swipe_counter = self.swipe_cooldown
         self.bloodlust = False
         self.evolution = False

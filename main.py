@@ -50,6 +50,7 @@ while run:
 
     draw_text(paladin.current_dmg, 525, 100, 'white')
     draw_text(druid.current_dmg, 525, 500, 'white')
+    draw_text(druid.current_heal, 975, 500, "green")
 
     # GAME IS PAUSED
     for event in pygame.event.get():
